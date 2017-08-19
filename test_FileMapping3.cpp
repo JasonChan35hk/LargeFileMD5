@@ -20,7 +20,7 @@ void test_FileMapping3(const wchar_t* filename) {
 	uint64_t readTime = 0;
 	uint64_t md5Time = 0;
 
-	int64_t n = filesize;
+	int64_t remain = filesize;
 	int64_t pos = 0;
 
 	auto proc = GetCurrentProcess();
@@ -31,14 +31,14 @@ void test_FileMapping3(const wchar_t* filename) {
 		throw Error(LOC);
 	}
 
-	while (n > 0) {
-		auto byteToRead = static_cast<DWORD>(n > kChunkSize ? kChunkSize : n);
+	while (remain > 0) {
+		auto byteToRead = static_cast<DWORD>(remain > kChunkSize ? kChunkSize : remain);
 		//------------
 		StopWatch sw2;
 		md5.update(data + pos, byteToRead);
 		md5Time += sw2.getTime();
 
-		n -= byteToRead;
+		remain -= byteToRead;
 		pos += byteToRead;
 	}
 

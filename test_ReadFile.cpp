@@ -14,9 +14,9 @@ void test_ReadFile(const wchar_t* filename) {
 	uint64_t readTime = 0;
 	uint64_t md5Time = 0;
 
-	int64_t n = filesize;
-	while (n > 0) {
-		auto byteToRead = static_cast<DWORD>(n > kChunkSize ? kChunkSize : n);
+	int64_t remain = filesize;
+	while (remain > 0) {
+		auto byteToRead = static_cast<DWORD>(remain > kChunkSize ? kChunkSize : remain);
 
 		buf.resize(byteToRead);
 		//------------
@@ -31,7 +31,7 @@ void test_ReadFile(const wchar_t* filename) {
 		md5.update(buf.data(), byteToRead);
 		md5Time += sw2.getTime();
 
-		n -= byteToRead;
+		remain -= byteToRead;
 	}
 	CloseHandle(f);
 

@@ -51,11 +51,11 @@ public:
 		}
 
 		int64_t filesize = myGetFileSize(f);
-		int64_t n = filesize;
+		int64_t remain = filesize;
 		int64_t pos = 0;
 
-		while (n > 0) {
-			auto byteToRead = static_cast<DWORD>(n > kChunkSize ? kChunkSize : n);
+		while (remain > 0) {
+			auto byteToRead = static_cast<DWORD>(remain > kChunkSize ? kChunkSize : remain);
 
 			auto* c = freeQueue.pop();
 			c->buf.resize(byteToRead);
@@ -75,7 +75,7 @@ public:
 			}
 
 			bufQueue.push(c);
-			n -= byteToRead;
+			remain -= byteToRead;
 			pos += byteToRead;
 		}
 

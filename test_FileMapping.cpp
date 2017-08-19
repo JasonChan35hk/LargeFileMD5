@@ -18,13 +18,13 @@ void test_FileMapping(const wchar_t* filename) {
 	uint64_t readTime = 0;
 	uint64_t md5Time = 0;
 
-	int64_t n = filesize;
+	int64_t remain = filesize;
 	int64_t pos = 0;
 
 	auto proc = GetCurrentProcess();
 
-	while (n > 0) {
-		auto byteToRead = static_cast<DWORD>(n > kChunkSize ? kChunkSize : n);
+	while (remain > 0) {
+		auto byteToRead = static_cast<DWORD>(remain > kChunkSize ? kChunkSize : remain);
 
 		//------------
 		StopWatch sw;
@@ -49,7 +49,7 @@ void test_FileMapping(const wchar_t* filename) {
 
 		UnmapViewOfFile(data);
 
-		n -= byteToRead;
+		remain -= byteToRead;
 		pos += byteToRead;
 	}
 
