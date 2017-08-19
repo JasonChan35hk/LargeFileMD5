@@ -1,2 +1,4 @@
 /x64
 /.vs
+/bin/LargeFileMD5.iobj
+/bin/LargeFileMD5.ipdb
