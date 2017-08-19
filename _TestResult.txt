@@ -1,0 +1,47 @@
+CentOS-7-x86_64-Everything-1611.iso
+
+---- test_FileMapping3 ----
+MD5: 15f5c9478d0a2ce5244c5237bb9fb97
+read  time:      0ms
+md5   time:  54594ms
+total time:  54609ms
+
+---- test_FileMapping2 ----
+MD5: 15f5c9478d0a2ce5244c5237bb9fb97
+read  time:  53623ms
+md5   time:  13078ms
+total time:  54063ms
+
+---- test_FileMapping ----
+MD5: 15f5c9478d0a2ce5244c5237bb9fb97
+read  time:     32ms
+md5   time:  52857ms
+total time:  53359ms
+
+---- test_ReadFile ----
+MD5: 15f5c9478d0a2ce5244c5237bb9fb97
+read  time:  40897ms
+md5   time:  14931ms
+total time:  55828ms
+
+---- test_ReadFile2 ----
+MD5: 15f5c9478d0a2ce5244c5237bb9fb97
+read  time:  53798ms
+md5   time:  14602ms
+total time:  57078ms
+
+=== End ===
+Please any key to exit
+
+
+
+
+
+
+
+
+
+
+
+
+
